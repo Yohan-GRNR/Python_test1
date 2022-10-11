@@ -20,11 +20,12 @@ dates_de_sortie = []
 # Boucle sur la totalité des films pour ne pas rater ceux sans date
 for film in films:
     date = re.findall(regex_dates, str(film))
+
     # Si la valeur est null alors indiquer qu'il n'y a rien
     if not date:
         dates_de_sortie.append("Pas de date renseignée")
     else:
-        dates_de_sortie.append(date)
+        dates_de_sortie.append(date[0])
 
 # Chaque film a forcément un titre
 titres_bs = soup.find_all(class_="meta-title-link")
@@ -35,7 +36,7 @@ for titre in titres_bs:
 print(titres)
 print(dates_de_sortie)
 
-# Création du tableau dans mon .csv
+# Création du tableau dans mon .csv4
 entete = ["Titre", "Date de reprise"]
 
 with open("database.csv", "w") as file_csv:
