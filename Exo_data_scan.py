@@ -31,10 +31,11 @@ titres_bs = soup.find_all(class_="meta-title-link")
 for titre in titres_bs:
     titres.append(titre.string)
 
+# Pour mon suivi -> À delete
 print(titres)
 print(dates_de_sortie)
 
-# Création du tableau
+# Création du tableau dans mon .csv
 entete = ["Titre", "Date de reprise"]
 
 with open("database.csv", "w") as file_csv:
