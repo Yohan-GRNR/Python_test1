@@ -1,9 +1,8 @@
 import re
-
 import requests
 from bs4 import BeautifulSoup
 import csv
-import re
+
 
 url = "https://www.allocine.fr/film/meilleurs/"
 
@@ -32,9 +31,10 @@ titres_bs = soup.find_all(class_="meta-title-link")
 for titre in titres_bs:
     titres.append(titre.string)
 
-# Pour mon suivi -> À delete
+""" Pour mon suivre dans la console 
 print(titres)
 print(dates_de_sortie)
+"""
 
 # Création du tableau dans mon .csv4
 entete = ["Titre", "Date de reprise"]
