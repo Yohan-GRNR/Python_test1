@@ -1,4 +1,3 @@
-import re
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -11,32 +10,26 @@ page = response.content
 soup = BeautifulSoup(page, "html.parser")
 
 films = soup.find_all(class_="meta-affintiy-score")
-regex_dates = r"<span class=\"date\">(.*)</span>"
-
 titres = []
 dates_de_sortie = []
 
 # Boucle sur la totalité des films pour ne pas rater ceux sans date
 for film in films:
-    date = re.findall(regex_dates, str(film))
+    date = film.find(class_="date")
+    titre = film.find(class_="meta-title-link")
 
-    # Si la valeur est null alors indiquer qu'il n'y a rien
-    if not date:
-        dates_de_sortie.append("Pas de date renseignée")
-    else:
-        dates_de_sortie.append(date[0])
-
-# Chaque film a forcément un titre
-titres_bs = soup.find_all(class_="meta-title-link")
-for titre in titres_bs:
     titres.append(titre.string)
 
-""" Pour mon suivre dans la console 
-print(titres)
+    if date is None:
+        dates_de_sortie.append("Pas de date")
+    else:
+        dates_de_sortie.append(date.string)
+""" --- Suivi console pour sois même ---
 print(dates_de_sortie)
+print(titres)
 """
 
-# Création du tableau dans mon .csv4
+# Création du tableau dans mon .csv /
 entete = ["Titre", "Date de reprise"]
 
 with open("database.csv", "w") as file_csv:
@@ -46,6 +39,6 @@ with open("database.csv", "w") as file_csv:
 
     # Boucle les deux tableaux en quinconce
     for titre, date in zip(titres, dates_de_sortie):
-        ligne=[titre, date]
+        ligne = [titre, date]
         # Écrit la ligne concerné à chaque boucle
         writer.writerow(ligne)
