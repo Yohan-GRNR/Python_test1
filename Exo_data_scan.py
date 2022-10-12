@@ -1,29 +1,47 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 import csv
 
 
-url = "https://www.allocine.fr/film/meilleurs/"
-
+url = "https://www.allocine.fr/film/meilleurs"
+url_main = "https://www.allocine.fr"
 response = requests.get(url)
-page = response.content
-soup = BeautifulSoup(page, "html.parser")
+soup = bs(response.content, "html.parser")
 
-films = soup.find_all(class_="meta-affintiy-score")
+# Récupération de tous les genres (link + name)
+genres = soup.find("ul", class_="filter-entity-word").find_all("a", class_="item-content", href=True)
+links_gender = []
+names_gender = []
+
+for genre in genres:
+    links_gender.append(url_main+genre["href"])
+    names_gender.append(genre)
+
+#######################################################
+
+# Récupération des titres + dates par genre
 titres = []
 dates_de_sortie = []
 
+for link_gender in links_gender:
+    page_gender = requests.get(link_gender)
+    soup_genre = bs(page_gender.content, "html.parser")
+
+
+    films = soup_genre.find_all(class_="meta-affintiy-score")
+
 # Boucle sur la totalité des films pour ne pas rater ceux sans date
-for film in films:
-    date = film.find(class_="date")
-    titre = film.find(class_="meta-title-link")
+    for film in films:
+        date = film.find(class_="date")
+        titre = film.find(class_="meta-title-link")
 
-    titres.append(titre.string)
+        titres.append(titre.string)
 
-    if date is None:
-        dates_de_sortie.append("Pas de date")
-    else:
-        dates_de_sortie.append(date.string)
+        if date is None:
+            dates_de_sortie.append("Pas de date")
+        else:
+            dates_de_sortie.append(date.string)
+
 """ --- Suivi console pour sois même ---
 print(dates_de_sortie)
 print(titres)
