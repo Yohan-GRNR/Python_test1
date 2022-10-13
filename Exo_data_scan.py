@@ -63,6 +63,4 @@ with open("database.csv", "w") as file_csv:
             ligne = [titre, date, genre]
             writer.writerow(ligne)
             seen.add(titre)
-        else:
-            ligne = [genre]
-            writer.writerow(ligne)
+
