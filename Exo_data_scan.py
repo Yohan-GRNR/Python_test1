@@ -29,7 +29,7 @@ for link_gender in links_gender:
     soup_genre = bs(page_gender.content, "html.parser")
     films = soup_genre.find_all(class_="meta-affintiy-score")
 
-    # Boucle sur la totalité des films pour ne pas rater ceux sans date
+# Boucle sur la totalité des films pour ne pas rater ceux sans date
     for film in films:
         date = film.find(class_="date")
         titre = film.find(class_="meta-title-link")
