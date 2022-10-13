@@ -4,9 +4,9 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Yohan-GRNR/Python_test1/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Yohan-GRNR/Python_test1/pulls)
+
 
 </div>
 
@@ -34,39 +34,42 @@ Ce projet porte sur le scraping. <br/> Il parse le contenu html d'un site, récu
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prérequis
+Dossier Python_test1
+-> dans l'invite de commande  ```git clone https://github.com/Yohan-GRNR/Python_test1.git```
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+IDE (utilisé ici: PyCharm CE - [Procédure d'installation](https://t-php.fr/69-pycharm-ubuntu.html))
 
 ### Installation
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
+Packages nécessaires :
+- requests==2.25.1
 ```
-Give the example
+pip install requests
 ```
 
-And repeat
+- beautifulsoup4==4.11.1
 
 ```
-until finished
+pip install beautifulsoup4
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+Pour vérifier vos versions:
 
+```
+pip freeze
+```
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+Dans l'invite de commande:
+1. `~/cd Python_test1`
+2. `main.py`
+
+Le classement des meilleurs films dans le fichier ``database.csv`` sera mis à jour.
+
 
 ## 🚀 Deploiement <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+-
 
 ## ✍️ Auteur <a name = "authors"></a>
 
