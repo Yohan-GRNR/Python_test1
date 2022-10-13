@@ -4,7 +4,6 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Yohan-GRNR/Python_test1/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Yohan-GRNR/Python_test1/pulls)
 
 
@@ -14,6 +13,8 @@
 
 <p align="center"> Projet de présentation de mes compétences destiné à la commision décisionnaire de mon inscription à la formation Développeur d'application Python.
     <br> 
+-
+
 </p>
 
 ## 📝 Sommaire
